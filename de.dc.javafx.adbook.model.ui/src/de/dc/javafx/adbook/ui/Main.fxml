@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dc.javafx.adbook.ui.MainController">
+   <center>
+      <TreeView fx:id="treeView" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <TitledPane animated="false" prefHeight="300.0" prefWidth="600.0" text="PropertyView" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="propertyTableView" layoutX="14.0" layoutY="-53.0" prefHeight="117.0" prefWidth="998.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="propertyColumn" prefWidth="149.99999392032623" text="Property" />
+                      <TableColumn fx:id="valueColumn" minWidth="0.0" prefWidth="500.0" text="Value" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+   </bottom>
+   <right>
+      <VBox prefHeight="557.0" prefWidth="227.0" BorderPane.alignment="CENTER">
+         <children>
+            <TitledPane animated="false" prefHeight="321.0" prefWidth="227.0" text="New">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="EAttribute" />
+                        <ComboBox fx:id="eattributeComboBox" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="201.0" />
+                        <Label layoutX="14.0" layoutY="72.0" text="Value" />
+                        <TextField fx:id="valueText" layoutX="14.0" layoutY="89.0" prefHeight="25.0" prefWidth="202.0" />
+                        <Button fx:id="updateButton" layoutX="18.0" layoutY="121.0" mnemonicParsing="false" onAction="#onUpdateButtonClicked" prefHeight="25.0" prefWidth="197.0" text="Update" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+            <TitledPane animated="false" prefHeight="242.0" prefWidth="227.0" text="History">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="historyListView" layoutX="44.0" layoutY="14.0" prefHeight="213.0" prefWidth="225.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <Button fx:id="undoButton" mnemonicParsing="false" onAction="#onUndoButtonClicked" text="Undo" />
+            <Button fx:id="redoButton" mnemonicParsing="false" onAction="#onRedoButtonClicked" text="Redo" />
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>

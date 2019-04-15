@@ -1,0 +1,32 @@
+@Ecore(nsURI="http://www.frateranatis.org/adbook")
+@GenModel(multipleEditorPages="false", creationIcons="false", 
+	editDirectory="/de.dc.javafx.adbook.model.edit/src-gen",
+	editorDirectory="/de.dc.javafx.adbook.model.editor/src-gen", 
+	richClientPlatform="true", 
+	codeFormatting="true",
+	importerID="org.eclipse.emf.importer.ecore", 
+	runtimePlatform="RCP")
+package de.dc.javafx.adbook.model
+
+class Adbook{
+	String name
+	Date createdOn
+	contains Contact[0..*] contacts
+	contains Group[0..*] groups
+}
+
+class Contact{
+	String firstname
+	String lastname
+	int age
+	boolean gender
+	String address
+	String phone
+	String mail
+	Date createdOn
+}
+
+class Group{
+	String name
+	refers Contact[0..*] contacts
+}
